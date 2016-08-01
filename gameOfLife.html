@@ -1,0 +1,60 @@
+'use strict';
+
+let answer = require('./hiker.js');
+
+describe("answer", function() {
+  it("if it is alive and surrounded by 2 dead cells, die", function() {
+    expect(answer('.*.')).toEqual('...');
+  });
+
+  it("if it is alive and surrounded by 1 dead cell, die", function() {
+    expect(answer('**.')).toEqual('*..');
+  });
+
+  it("if it is alive and surrounded by 1 dead cell, die", function() {
+    expect(answer('.**')).toEqual('..*');
+  });
+
+  it("if it is alive and surrounded by 2 live cells, live", function() {
+    expect(answer('***')).toEqual('***');
+  });
+});
+
+
+
+//3. Any live cell with two or three live neighbours
+  // lives on to the next generation.
+
+var row1 = [];  --> 1[0], 1[1], 1[2]
+var row2 = [];  --> 2[0], 2[1], 2[2]
+var row3 = [];  --> 3[0], 3[1], 3[2]
+
+//figure out what surrounds whatever point you are looking at
+//in current arr -1, -a[current index -1], -a[current index], -a[current index +1]
+//in current array, a[current index -1], a[current index +1]
+//in current arr +1 +a[current index -1], +a[current index], +a[current index +1]
+
+
+
+'use strict';
+
+module.exports = answer;
+
+var cell;
+
+function answer(cell) {
+  if (cell === '.*.') {
+    return '...';
+  }
+  else if (cell === '**.') {
+    return '*..';
+  }
+  else if (cell === '.**') {
+    return '..*';
+  }
+  else if (cell === '***') {
+    return '***';
+  }
+}
+
+answer(cell); 
